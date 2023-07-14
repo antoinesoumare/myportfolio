@@ -1,0 +1,35 @@
+<div class="container mt-3" >
+    
+    <div class="contactContainer">
+
+        <div class="mb-3">
+            <label for="FullName" class="form-label">Full Name</label>
+            <input type="email" class="form-control" id="fullname" placeholder="Enter FullName" [(ngModel)]="fullname">
+        </div>
+        
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="email">
+        </div>
+
+        <div class="mb-3">
+            <label for="PhoneNo" class="form-label">Phone No</label>
+            <input type="text" class="form-control" id="phoneNo" placeholder="Enter Phone No" [(ngModel)]="phoneno">
+        </div>
+
+       
+        <div class="mb-3">
+            <label for="Message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="3" [(ngModel)]="message"></textarea>
+        </div>
+            <div class="d-flex justify-content-center">
+            <button class="btn btn-primary mt-3" (click)="submitForm()" >Submit</button>
+        </div>
+
+        <div class="confirmmessage form-text" [hidden]="hideMessage">
+            Thank you! I will get back to You
+        </div>
+
+    </div>
+</div>
