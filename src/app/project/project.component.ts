@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Projects } from '../interfaces/projects.interface';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-project',
@@ -14,10 +15,11 @@ export class ProjectComponent {
   Github: string = '';
   ProjectURL: string = '';
   constructor(private http: HttpClient) { }
+  serverUrl = environment.server;
 
   ngOnInit(): void {
 
-    this.http.get<Projects>('http://localhost:1337/api/projects?populate=*').subscribe(response => {
+    this.http.get<Projects>(this.serverUrl+'/api/projects?populate=*').subscribe(response => {
       console.log(response);
       this.projects = response;
       // this.projectTitle = response.data;

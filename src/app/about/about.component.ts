@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { About } from '../interfaces/about.interface';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-about',
@@ -12,14 +13,15 @@ export class AboutComponent {
   constructor(private http: HttpClient){}
   about: any; 
   aboutText:string = '';
-  headShot:string = ''
+  headShot:string = '';
+  serverUrl= environment.server;
   ngOnInit(): void {
     
-    this.http.get<About>('http://localhost:1337/api/about?populate=*').subscribe( response => {
+    this.http.get<About>(this.serverUrl + '/api/about?populate=*').subscribe( response => {
       console.log(response);
       this.about = response;
       this.aboutText = response.data.attributes.AboutText;
-      this.headShot = 'http://localhost:1337'+response.data.attributes.Headshot.data.attributes.formats.medium.url;
+      this.headShot = this.serverUrl+response.data.attributes.Headshot.data.attributes.formats.medium.url;
     })
 
   }
