@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit{
       console.log('Data',this.data);
     })
 
+    
+
   }
 
 }
