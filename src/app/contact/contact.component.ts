@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { ReCaptchaV3Service } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-contact',
@@ -16,11 +17,19 @@ export class ContactComponent {
   hideMessage = true;
   serverUrl = environment.server;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,private recaptchaV3Service: ReCaptchaV3Service,) { 
     
   }
+  resolved(event: any) {
+    console.log(`EVENT:`, event);
+  }
 
+  handleToken(token: any) {
+    console.log(`TOKEN:`, token);
+  }
   submitForm(){
+    this.recaptchaV3Service.execute('importantAction')
+      .subscribe((token) => this.handleToken(token));
     console.log("Email: " + this.email);
     console.log("Full Name: " + this.fullname);
     console.log("Phone No: " + this.phoneno);
