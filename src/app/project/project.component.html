@@ -1,7 +1,46 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-8" *ngFor="let Projects of projects">
             <h1>{{projectTitle}}</h1>
+        </div>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Projects</h1>
+            <h5>Here are some of the work I have completed during my time at Van Arts</h5>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="categories">
+        <button (click)="loadAllProjects()" class="category-button" data-category="all">All</button>
+        <button (click)="loadDesignProjects()" class="category-button" data-category="design">Design</button>
+        <button (click)="loadWebProjects()"class="category-button" data-category="web">Web</button>
+    </div>
+    <div class="projects" *ngFor="let Projects of projects">
+        
+        <div class="project" data-category="design">
+            <img src="" alt="Design Project 1"> <!-- use binding to parse the image -->
+        </div>
+        <div class="project" data-category="web">
+            <img src="web_project1.jpg" alt="Web Project 1">
+        </div>
+       
+        <div class="project" data-category="web">
+            <img src="web_project1.jpg" alt="Web Project 1">
+        </div>
+        <div class="project" data-category="web">
+            <img src="web_project1.jpg" alt="Web Project 1">
+        </div>
+        <div class="project" data-category="web">
+            <img src="web_project1.jpg" alt="Web Project 1">
+        </div>
+        <div class="project" data-category="web">
+            <img src="web_project1.jpg" alt="Web Project 1">
         </div>
     </div>
 </div>

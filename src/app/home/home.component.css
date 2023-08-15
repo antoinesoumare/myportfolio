@@ -7,5 +7,18 @@ h1{
     padding: 30px;
     border-radius: 5px;
     background-color: rgba(0,0,0,0.5);
-    color: darkgray;
+    color: white;
+}
+
+button{
+    margin: 109px;
+    padding: 10px;
+    border-radius: 95px;
+    background-color: rgba(231,193,65,0.5);
+}
+
+.img-position{
+    margin: 100px;
+    max-width: 100%;
+    height: auto;
 }
