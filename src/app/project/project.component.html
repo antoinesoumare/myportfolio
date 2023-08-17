@@ -9,14 +9,28 @@
 
 <div class="container">
     <div class="categories">
-        <button (click)="loadAllProjects()" class="category-button" data-category="all">All</button>
-        <button (click)="loadDesignProjects()" class="category-button" data-category="design">Design</button>
-        <button (click)="loadWebProjects()"class="category-button" data-category="web">Web</button>
+        <button (click)="j_loadAllProjects('all')" class="category-button" data-category="all">All</button>
+        <button (click)="j_loadAllProjects('design')" class="category-button" data-category="design">Design</button>
+        <button (click)="j_loadAllProjects('web')" class="category-button" data-category="web">Web</button>
     </div>
-    <div class="projects" *ngFor="let Projects of projects">
+    
+    <div *ngIf="loading" style="color: white;">loading...</div>
+    <div class="projects" *ngFor="let project of j_Projects">
+
+        <div *ngIf="!loading" class="data">
+            <h1>{{project.attributes.ProjectTitle}}</h1>
+            <p>{{project.attributes.ProjectDescription}}</p>
+            <img [src]="imageUrl+project.attributes.ProjectImages.data[0].attributes.formats.medium.url" alt="">
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <div class="projects" *ngFor="let Projects of projects">
         
         <div class="project" data-category="design">
-            <img src="" alt="Design Project 1"> <!-- use binding to parse the image -->
+            <img src="" alt="Design Project 1"> 
         </div>
         <div class="project" data-category="web">
             <img src="web_project1.jpg" alt="Web Project 1">
@@ -34,5 +48,5 @@
         <div class="project" data-category="web">
             <img src="web_project1.jpg" alt="Web Project 1">
         </div>
-    </div>
-</div>
+    </div> -->
+

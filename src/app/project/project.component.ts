@@ -12,11 +12,33 @@ export class ProjectComponent implements OnInit {
   displayedProjects: any[] = [];
   projects: any[] = []; 
   serverUrl = environment.server;
+  imageUrl= this.serverUrl
+  loading = true;
+
+  j_Projects: any[] = [];
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+
+    if(environment.production) {
+      this.imageUrl = '';
+    }
     this.loadAllProjects();
+    this.j_loadAllProjects('all');
+  }
+
+  j_loadAllProjects(category: string): void {
+    this.loading = true;
+    let url= this.serverUrl + '/api/projects?populate=*';
+    if (category !== 'all') {
+      url += '&filters[Category][$eq]=' + category;
+    }
+    this.http.get<any>(url).subscribe(response => {
+      this.loading = false;
+      this.j_Projects = response.data;
+      console.log('Projects', this.j_Projects);
+    })
   }
 
   loadAllProjects(): void {
@@ -29,15 +51,6 @@ export class ProjectComponent implements OnInit {
     });
   }
 
-  loadProjectsByCategory(category: string): void {
-    if (category === 'all') {
-      this.displayedProjects = this.allProjects;
-    } else {
-      this.displayedProjects = this.allProjects.filter(project => project.category === category);
-    }
-  }
-
-  
 
   loadDesignProjects(): void {
     this.http.get<any>(this.serverUrl + '/api/projects?filters[Category][$eq]=Design').subscribe(response => {
@@ -55,3 +68,4 @@ export class ProjectComponent implements OnInit {
 
 
 }
+
