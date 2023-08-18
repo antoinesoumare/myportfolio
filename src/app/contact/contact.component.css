@@ -21,6 +21,10 @@
 }
 
 .btn:hover{
-    background-color: #000;
+    background-color: #E7C141;
     color: #fff;
+}
+
+.form-label{
+    color: #E7C141;
 }

@@ -6,10 +6,12 @@
                 <div class="maincontainer text-center">
                     <img class="img-position" src="assets/logo.png" alt="">
                     <h1>{{ data.data.attributes.JobTitle }}</h1>
-                    <h1>{{ data.data.attributes.JobTitle2 }}</h1>
-                    <button class="btn btn-primary btn-lg mt-3">
-                        <a href="/projects" class="text-white text-decoration-none">Projects</a>
-                    </button>
+                    <!-- <h1>{{ data.data.attributes.JobTitle2 }}</h1> -->
+
+                   <div class="home-c2a-container">
+                        <a routerLink="/projects" id="home-c2a-s1a">Projects</a>
+                        <a routerLink="/contact-us" id="home-c2a-s1b">Contact Me</a>
+                   </div>
                 </div>
             </div>
         </div>

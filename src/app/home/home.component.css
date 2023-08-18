@@ -1,8 +1,9 @@
 .banner{
-    height: 100vh;
+    height: 70vh;
     background-size: cover;
 
 }
+
 h1{
     padding: 30px;
     border-radius: 5px;
@@ -18,7 +19,61 @@ button{
 }
 
 .img-position{
-    margin: 100px;
-    max-width: 100%;
+    margin: 50px;
+    max-width: 50%;
     height: auto;
+
 }
+
+
+/* C2A CONTAINER */
+.home-c2a-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+}
+/* style 1A */
+#home-c2a-s1a {
+    text-align: center;
+    border-radius: 25px;
+    border: solid 1px #E7C141;
+    padding: 5px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    color: black;
+    background-color: #E7C141;
+    margin: 0px 20px;
+}
+
+/* 1A hover */
+#home-c2a-s1a:hover {
+    background-color: transparent;
+    color: #E7C141;
+}
+/* END */
+
+
+/* style 1B */
+#home-c2a-s1b {
+    text-align: center;
+    border-radius: 25px;
+    border: solid 1px #E7C141;
+    padding: 5px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    color: #E7C141;
+    background-color: transparent;
+    margin: 0px 20px;
+}
+/* 1B hover */
+#home-c2a-s1b:hover {
+    background-color: #E7C141;
+    color: black;
+}
+/* END */
+
+/* end of C2A contaner */
